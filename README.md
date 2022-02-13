@@ -102,7 +102,7 @@ npm run serve
 
 This will start a development server that will automatically serve and update the project as you edit it.
 <br>
-The project files are located in ```C:/projectRoot/src```, and the folder structure is as follows.
+The project files are located in ```C:/projectRoot/src```, and the folder structure is as follows:
 
 | Folder | Information |
 ---------|-------------|
