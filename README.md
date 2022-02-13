@@ -34,4 +34,6 @@ Wiki
 2. [Project modules](https://github.com/realashleybailey/RotarySantaTracker/wiki/Project-modules)
 3. [Workflows](https://github.com/realashleybailey/RotarySantaTracker/wiki/Workflows)
 
+<p align="right">
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/realashleybailey/RotarySantaTracker/blob/master/LICENSEs)
+</p>
