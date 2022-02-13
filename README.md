@@ -33,10 +33,15 @@ Tech stack
 
 Wiki
 ---
-1. [Build setup](https://github.com/realashleybailey/RotarySantaTracker/wiki/Build-setup)
+1. [Build setup](https://github.com/realashleybailey/RotarySantaTracker/#Build setup)
 2. [Project modules](https://github.com/realashleybailey/RotarySantaTracker/wiki/Project-modules)
 3. [Workflows](https://github.com/realashleybailey/RotarySantaTracker/wiki/Workflows)
 
 <p align="right">
 <img src="https://img.shields.io/github/license/realashleybailey/RotarySantaTracker">
 </p>
+
+Build setup
+---
+
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/realashleybailey/RotarySantaTracker/blob/master/LICENSEs)
