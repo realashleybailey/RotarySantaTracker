@@ -33,9 +33,9 @@ Tech stack
 
 Wiki
 ---
-1. [Build setup](https://github.com/realashleybailey/RotarySantaTracker/#Build setup)
-2. [Project modules](https://github.com/realashleybailey/RotarySantaTracker/wiki/Project-modules)
-3. [Workflows](https://github.com/realashleybailey/RotarySantaTracker/wiki/Workflows)
+1. [Build setup](https://github.com/realashleybailey/RotarySantaTracker#Build-setup)
+2. [Project modules](https://github.com/realashleybailey/RotarySantaTracker#Project-modules)
+3. [Workflows](https://github.com/realashleybailey/RotarySantaTracker#Workflows)
 
 <p align="right">
 <img src="https://img.shields.io/github/license/realashleybailey/RotarySantaTracker">
@@ -43,5 +43,10 @@ Wiki
 
 Build setup
 ---
+
+| Command | Information |
+|---------|-------------|
+| npm run build | Use this command to build the repository into the 'dist' folder for distribution. |
+
 
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/realashleybailey/RotarySantaTracker/blob/master/LICENSEs)
