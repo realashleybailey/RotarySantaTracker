@@ -11,9 +11,7 @@ Author: [@realashleybailey](https://www.github.com/realashleybailey)
 
 Status
 ---
-[![Develop](https://github.com/realashleybailey/RotarySantaTracker/actions/workflows/develop_pr_checks.yml/badge.svg)](https://github.com/realashleybailey/RotarySantaTracker/actions/workflows/develop_pr_checks.yml)
-[![Release](https://github.com/realashleybailey/RotarySantaTracker/actions/workflows/release_pr_checks.yml/badge.svg)](https://github.com/realashleybailey/RotarySantaTracker/actions/workflows/release_pr_checks.yml)
-[![Deploy](https://github.com/realashleybailey/RotarySantaTracker/actions/workflows/deploy.yml/badge.svg)](https://github.com/realashleybailey/RotarySantaTracker/actions/workflows/deploy.yml)
+[![Build](https://github.com/realashleybailey/RotarySantaTracker/actions/workflows/node.js.yml/badge.svg)](https://github.com/realashleybailey/RotarySantaTracker/actions/workflows/node.js.yml)
 
 Highlights
 ---
