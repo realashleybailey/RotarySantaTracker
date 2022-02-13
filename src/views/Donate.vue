@@ -36,7 +36,7 @@ export default Vue.extend({
   },
   methods: {
     startDonation() {
-      window.location.href = "https://square.link/u/5RlRakc3";
+      window.location.href = config.donate.url;
     },
   },
   created() {
