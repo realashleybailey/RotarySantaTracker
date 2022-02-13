@@ -37,16 +37,16 @@ Wiki
 2. [Project modules](https://github.com/realashleybailey/RotarySantaTracker#Project-modules)
 3. [Workflows](https://github.com/realashleybailey/RotarySantaTracker#Workflows)
 
-<p align="right">
-<img src="https://img.shields.io/github/license/realashleybailey/RotarySantaTracker">
-</p>
-
 Build setup
 ---
 
 | Command | Information |
 |---------|-------------|
-| npm run build | Use this command to build the repository into the 'dist' folder for distribution. |
-
-
+| npm run start | Start the built in Express server.<br> <strong>YOU MUST USE 'NPM BUILD' COMMAND FIRST</strong> |
+| npm run build | Build the repository into the 'dist' folder for distribution. |
+| npm run dev  | Start a NODEMON server that automatically restarts on every file change.  |
+| npm run serve | Start the Vue JS development server that will automatically build the project and render it to the page |
+| npm run lint | Begin a project wide file linting to tidy up code and test for errors |
+| npm run test:unit | Begin a unit test on the project to check the web site functions as intended |
+| npm run test:e2e | Begin a visual Chrome test using Cypress to check web elements are rendering correctly |
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/realashleybailey/RotarySantaTracker/blob/master/LICENSEs)
