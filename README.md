@@ -1,34 +1,39 @@
-# web
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/16636012/153734435-6d903cf5-f46f-48ad-8ea1-0cd45470d331.png"/>
+</p>
 
-## Project setup
-```
-npm install
-```
+# Rotary Santa Tracker
+Simple Vue.js Application for hosting a tracking map to locate Santas Sleigh
+Author: [@realashleybailey](https://www.github.com/realashleybailey)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Status
+---
+[![Develop](https://github.com/realashleybailey/RotarySantaTracker/actions/workflows/develop_pr_checks.yml/badge.svg)](https://github.com/realashleybailey/RotarySantaTracker/actions/workflows/develop_pr_checks.yml)
+[![Release](https://github.com/realashleybailey/RotarySantaTracker/actions/workflows/release_pr_checks.yml/badge.svg)](https://github.com/realashleybailey/RotarySantaTracker/actions/workflows/release_pr_checks.yml)
+[![Deploy](https://github.com/realashleybailey/RotarySantaTracker/actions/workflows/deploy.yml/badge.svg)](https://github.com/realashleybailey/RotarySantaTracker/actions/workflows/deploy.yml)
 
-### Compiles and minifies for production
-```
-npm run build
-```
+Highlights
+---
+- Use Vue.js for simple templated design
+- Very easy to config using the config.json file located inside "src" folder
+- NPM script commands for quick and easy "Build", "Develope" and "Deploy"
+- Built in Express server for quick runtime
 
-### Run your unit tests
-```
-npm run test:unit
-```
+Tech stack
+---
+- Vue.js
+- Typescript
+- HTML & CSS
+- NPM
+- Firebase: Firestore, Storage
+- Google Maps
 
-### Run your end-to-end tests
-```
-npm run test:e2e
-```
+Wiki
+---
+1. [Build setup](https://github.com/realashleybailey/RotarySantaTracker/wiki/Build-setup)
+2. [Project modules](https://github.com/realashleybailey/RotarySantaTracker/wiki/Project-modules)
+3. [Workflows](https://github.com/realashleybailey/RotarySantaTracker/wiki/Workflows)
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+<p align="right">
+<img src="https://img.shields.io/github/license/realashleybailey/RotarySantaTracker">
+</p>
