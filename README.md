@@ -4,6 +4,7 @@
 
 # Rotary Santa Tracker
 Simple Vue.js Application for hosting a tracking map to locate Santas Sleigh
+
 Author: [@realashleybailey](https://www.github.com/realashleybailey)
 
 Status
