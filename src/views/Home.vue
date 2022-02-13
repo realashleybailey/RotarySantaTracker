@@ -3,8 +3,8 @@
     <div class="hero-body">
       <div class="container has-text-centered">
         <div class="column is-6 is-offset-3">
-          <h1 class="title">Track Santa</h1>
-          <h2 class="subtitle">Welcome to the Rotary Santa Tracker, find out where Santas Slay is by clicking the button below.</h2>
+          <h1 class="title" v-html="this.title"></h1>
+          <h2 class="subtitle" v-html="this.desc"></h2>
           <router-link to="/track" tag="div" class="buttons">
             <b-button type="is-primary" expanded>Track Santa</b-button>
           </router-link>
@@ -29,3 +29,22 @@
   right: 0;
 }
 </style>
+
+<script lang="ts">
+import Vue from "vue";
+import config from "../config.json";
+
+export default Vue.extend({
+  name: "Home",
+  data() {
+    return {
+      title: "",
+      desc: "",
+    };
+  },
+  created() {
+    this.title = config.home.title;
+    this.desc = config.home.desc;
+  },
+});
+</script>

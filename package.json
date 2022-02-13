@@ -1,10 +1,12 @@
 {
-  "name": "Ashleys Party",
+  "name": "rotarysantatracker",
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "node ./dist/index.js",
+    "dev": "nodemon ./dist/index.js",
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --mode development && cd ./server && npm i && npm run build && cd ../",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint"

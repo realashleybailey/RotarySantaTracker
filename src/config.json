@@ -1,0 +1,22 @@
+{
+    "home": {
+        "title": "Track Santa",
+        "desc": "Welcome to the Rotary Santa Tracker, find out where Santas Slay is by clicking the button below."
+    },
+    "about": {
+        "title": "About",
+        "desc": ""
+    },
+    "donate": {
+        "title": "Coalville Belvoir Rotary Club",
+        "desc": "With your support we can continue to provide to the local community, we are grateful for your support."
+    },
+    "firebase": {
+        "apiKey": "AIzaSyD6TBDVAX6YN59EObbNWHPQf0v0hqDSInU",
+        "authDomain": "rotarysantatracker.firebaseapp.com",
+        "projectId": "rotarysantatracker",
+        "storageBucket": "rotarysantatracker.appspot.com",
+        "messagingSenderId": "112955010383",
+        "appId": "1:112955010383:web:32eee136a908dd20f4293a"
+    }
+}
