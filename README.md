@@ -122,7 +122,7 @@ Project modules
 | vue-router | Vue Router is a Vue extension to allow for better page routing for the Vue site |
 | vue2-google-maps | Vue Google Maps is an extension to the Vue library to allow for Google Maps intergration |
 | vuex | Vuex is a state management extension for Vue to allow for persitence of data between pages |
-| vue-cookie-law | Vue extension for displaying cookie notification |
+
 Workflows
 ---
 
