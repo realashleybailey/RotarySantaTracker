@@ -25,6 +25,7 @@
 <script lang="ts">
 import Vue from "vue";
 import config from "../config.json";
+import { getAnalytics, logEvent } from "firebase/analytics";
 
 export default Vue.extend({
   name: "Donate",
@@ -32,11 +33,18 @@ export default Vue.extend({
     return {
       title: "",
       desc: "",
+      analytics: getAnalytics(),
     };
   },
   methods: {
     startDonation() {
-      window.location.href = config.donate.url;
+      // Log the event to Google Analytics
+      logEvent(this.analytics, "donate", {
+        action: "start",
+      });
+
+      // Open the donation page in a new tab
+      window.open(config.donate.url, "_blank");
     },
   },
   created() {
