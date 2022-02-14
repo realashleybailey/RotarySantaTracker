@@ -60,6 +60,7 @@ import {
   Unsubscribe,
   GeoPoint,
 } from "firebase/firestore";
+import { getAnalytics, logEvent } from "firebase/analytics";
 
 export default Vue.extend({
   name: "AddGoogleMap",
@@ -112,6 +113,7 @@ export default Vue.extend({
         mapId: "b4c8dccaab2202a3",
       },
       followingSanta: true as boolean,
+      analytics: getAnalytics(),
     };
   },
   computed: {
@@ -279,6 +281,11 @@ export default Vue.extend({
     // Start loading
     this.isLoading = true;
 
+    // Log page load event
+    logEvent(this.analytics, "start_tracking", {
+      page: "santa_tracker",
+    });
+
     // Get Location
     if (navigator.geolocation) {
       await this.gettingLocation();
@@ -298,6 +305,11 @@ export default Vue.extend({
   beforeDestroy() {
     // Unsubscribe from Firestore
     if (this.unsubscribe) this.unsubscribe();
+
+    // Log page exit event
+    logEvent(this.analytics, "stop_tracking", {
+      page: "santa_tracker",
+    });
   },
   watch: {
     santaMarker: {
@@ -305,6 +317,11 @@ export default Vue.extend({
         if (this.followingSanta) {
           this.followSanta();
         }
+
+        // Log Santa location change
+        logEvent(this.analytics, "santa_location_change", {
+          page: "santa_tracker",
+        });
       },
       deep: true,
     },

@@ -14,10 +14,14 @@ import router from './router'
 import store from './store'
 import Buefy from 'buefy'
 
-import config from './config.json'
+import packageJson from '../package.json'
 
+// Initizalize Firebase
+import config from './config.json'
 import { initializeApp } from 'firebase/app'
+import { getAnalytics, logEvent } from 'firebase/analytics'
 initializeApp(config.firebase);
+getAnalytics();
 
 // Initalize Buefy
 import './assets/style.scss'
