@@ -110,6 +110,22 @@ The project files are located in ```C:/projectRoot/src```, and the folder struct
 | store | Deprecated not needed for this project. |
 | views | Store the file templates for the different pages in the site.
 
+Project modules
+---
+| NPM Package | Information |
+--------------|-------------|
+| buefy | Buefy is a user interface component library made for Vue.js |
+| firebase | Firebase provides tools for accessing database components |
+| vue | Vue is a framework module that the site is built upon |
+| vue-class-component | Vue class component is an extension to the Vue module to provide cleaner Vue components |
+| vue-property-decorator | Vue property decorator is a dependent of Vue class component |
+| vue-router | Vue Router is a Vue extension to allow for better page routing for the Vue site |
+| vue2-google-maps | Vue Google Maps is an extension to the Vue library to allow for Google Maps intergration |
+| vuex | Vuex is a state management extension for Vue to allow for persitence of data between pages |
 
+Workflows
+---
+
+This repository uses one workflow, this a test build workflow for monitoring successful builds, if the build fails then it will notify us in the repo so we can quickly identify and repair the bad code.
 
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/realashleybailey/RotarySantaTracker/blob/master/LICENSEs)
