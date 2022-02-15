@@ -14,16 +14,14 @@ import router from './router'
 import store from './store'
 import Buefy from 'buefy'
 
-import packageJson from '../package.json'
-
 // Initizalize Firebase
 import config from './config.json'
 import { initializeApp } from 'firebase/app'
-import { getAnalytics, logEvent } from 'firebase/analytics'
+import { getAnalytics } from 'firebase/analytics'
 initializeApp(config.firebase);
 getAnalytics();
 
-// Initalize Buefy
+// Initalize Buefys
 import './assets/style.scss'
 Vue.use(Buefy)
 
