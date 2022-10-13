@@ -1,8 +1,10 @@
 <template>
   <div class="map-page">
     <GmapMap ref="mapRef" id="map" :zoom="zoom" :center="center" :options="mapOptions">
-      <GmapMarker :position="santaMarker.position" :clickable="true" :icon="{ url: require('../assets/santa.png')}" :label="santaMarker.label"></GmapMarker>
-      <GmapMarker :position="userMarker.position" :clickable="true" :icon="{ url: require('../assets/mapmarker.png')}" :label="userMarker.label"></GmapMarker>
+      <GmapMarker :position="santaMarker.position" :clickable="true" :icon="{ url: require('../assets/santa.png')}"
+        :label="santaMarker.label"></GmapMarker>
+      <GmapMarker :position="userMarker.position" :clickable="true" :icon="{ url: require('../assets/mapmarker.png')}"
+        :label="userMarker.label"></GmapMarker>
     </GmapMap>
 
     <b-navbar fixed-bottom :mobile-burger="false" centered>
@@ -78,7 +80,7 @@ export default Vue.extend({
           color: "#000000",
           fontWeight: "bold",
           fontSize: "16px",
-          text: "Santa's Sleigh",
+          text: "Santa's Slay",
           className: "marker-position",
         },
       },
