@@ -2,6 +2,7 @@
     <img src="https://user-images.githubusercontent.com/16636012/153734435-6d903cf5-f46f-48ad-8ea1-0cd45470d331.png"/>
 </p>
 
+
 # Rotary Santa Tracker
 Simple Vue.js Application for hosting a tracking map to locate Santas Sleigh
 
