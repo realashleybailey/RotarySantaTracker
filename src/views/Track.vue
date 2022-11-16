@@ -80,7 +80,7 @@ export default Vue.extend({
           color: "#000000",
           fontWeight: "bold",
           fontSize: "16px",
-          text: "Santa's Slay",
+          text: "Santa's Sleigh",
           className: "marker-position",
         },
       },
