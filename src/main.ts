@@ -18,6 +18,7 @@ import Buefy from 'buefy'
 import config from './config.json'
 import { initializeApp } from 'firebase/app'
 import { getAnalytics } from 'firebase/analytics'
+
 initializeApp(config.firebase);
 getAnalytics();
 
@@ -27,13 +28,13 @@ Vue.use(Buefy)
 
 // Initalize the Vue with Google Maps
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const VueGoogleMaps = require('vue2-google-maps')
-Vue.use(VueGoogleMaps, {
-  load: {
-    key: 'AIzaSyDBi2Jt0jMQiZiH3uhmTysTgxFMrmtKsEo',
-    libraries: 'places',
-  },
-})
+// const VueGoogleMaps = require('vue2-google-maps')
+// Vue.use(VueGoogleMaps, {
+//   load: {
+//     key: 'AIzaSyDBi2Jt0jMQiZiH3uhmTysTgxFMrmtKsEo',
+//     libraries: 'places',
+//   },
+// })
 
 Vue.config.productionTip = false
 
