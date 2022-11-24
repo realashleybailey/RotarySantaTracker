@@ -13,12 +13,12 @@
         <b-button type="is-primary" class="mt-3" label="Make Donation" v-on:click="startDonation" />
       </p>
     </section>
-    <section>
+    <!-- <section>
       <small style="padding-left: 30px; padding-right: 30px; text-align: center; position: absolute; width: 100%">
         All donations are proccessed through a third party, namely
         <a href="https://squareup.com/">Square Inc</a>.
       </small>
-    </section>
+    </section> -->
   </section>
 </template>
 
