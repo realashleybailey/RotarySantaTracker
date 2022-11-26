@@ -13,6 +13,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import Buefy from 'buefy'
+import Snowflakes from 'magic-snowflakes';
 
 // Initizalize Firebase
 import config from './config.json'
@@ -26,7 +27,13 @@ getAnalytics();
 import './assets/style.scss'
 Vue.use(Buefy)
 
-
+const snowflakes = new Snowflakes({
+  color: "#ffffff",
+  minOpacity: 0.3,
+  maxOpacity: 0.4,
+  maxSize: 15
+});
+Vue.prototype.$snowflakes = snowflakes;
 
 // Initalize the Vue with Google Maps
 // eslint-disable-next-line @typescript-eslint/no-var-requires

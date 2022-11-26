@@ -1,7 +1,7 @@
 <template>
     <section class="hero is-info">
       <div class="hero-body is-fullheight headerbox">
-        <div class="container has-text-centered">
+        <div class="container has-text-centered" style="z-index: 1;">
           <div class="column is-6 is-offset-3">
             <h1 class="title" v-html="title"></h1>
             <h2 class="subtitle" v-html="desc"></h2>
@@ -18,17 +18,66 @@
           </div>
         </div>
       </div>
-      <div class="container" style="padding: 15px;">
+      <div class="container" style="padding: 15px; z-index: 1;">
         <h1 class="title" style="margin-bottom: 0px;">Santa Locations</h1>
         <h2 class="subttitle">Santa is currently at locations with a purple border</h2>
         <br>
         <b-table :data="collections" :columns="columns" :selected="selected"></b-table>
         <p style="padding: 10px;"><small>Please bear in mind Santa is replaced at some locations with Mrs Claus, please check social media for further information.</small></p>
     </div>
+    <ul class="lightrope" style="z-index: 1;">
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+</ul>
     </section>
 </template>
 
 <style>
+
+.snowflakes {
+  z-index: 0;
+}
+
 html body [data-ca3_iconfont="ETmodules"]::before {
     font-family: "ETmodules";
 }
@@ -153,6 +202,7 @@ export default Vue.extend({
     };
   },
   created() {
+
     this.title = config.home.title;
     this.desc = config.home.desc;
     
