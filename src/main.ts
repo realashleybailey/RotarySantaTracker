@@ -26,6 +26,8 @@ getAnalytics();
 import './assets/style.scss'
 Vue.use(Buefy)
 
+
+
 // Initalize the Vue with Google Maps
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 // const VueGoogleMaps = require('vue2-google-maps')

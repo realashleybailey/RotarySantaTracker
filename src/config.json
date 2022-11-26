@@ -20,5 +20,284 @@
         "messagingSenderId": "112955010383",
         "appId": "1:112955010383:web:32eee136a908dd20f4293a",
         "measurementId": "G-7FTPV4R3VS"
-    }
+    },
+    "locations": [
+        {
+            "date": "2022-11-26T00:00:00.000Z",
+            "collections": [
+                {
+                    "location": "Christmas in Coalville Event",
+                    "times": [
+                        "10:00:00",
+                        "17:00:00"
+                    ],
+                    "mrs": false
+                }
+            ]
+        },
+        {
+            "date": "2022-11-27T00:00:00.000Z",
+            "collections": [
+                {
+                    "location": "Morrisons Coalville",
+                    "times": [
+                        "10:00:00",
+                        "16:00:00"
+                    ],
+                    "mrs": false
+                }
+            ]
+        },
+        {
+            "date": "2022-11-29T00:00:00.000Z",
+            "collections": [
+                {
+                    "location": "Hugglescote (Frearson Road Estate then Usherwood Way Estate)",
+                    "times": [
+                        "18:00:00",
+                        "20:00:00"
+                    ],
+                    "mrs": false
+                }
+            ]
+        },
+        {
+            "date": "2022-12-03T00:00:00.000Z",
+            "collections": [
+                {
+                    "location": "Belvoir Centre",
+                    "times": [
+                        "10:00:00",
+                        "13:00:00"
+                    ],
+                    "mrs": false
+                },
+                {
+                    "location": "Newmarket",
+                    "times": [
+                        "13:00:00",
+                        "16:00:00"
+                    ],
+                    "mrs": true
+                },
+                {
+                    "location": "Copt Oak Pub",
+                    "times": [
+                        "17:00:00",
+                        "19:00:00"
+                    ],
+                    "mrs": false
+                }
+            ]
+        },
+        {
+            "date": "2022-12-04T00:00:00.000Z",
+            "collections": [
+                {
+                    "location": "Co-Op Whitwick",
+                    "times": [
+                        "10:00:00",
+                        "16:00:00"
+                    ],
+                    "mrs": false
+                }
+            ]
+        },
+        {
+            "date": "2022-12-07T00:00:00.000Z",
+            "collections": [
+                {
+                    "location": "Ibstock (Parkdale/Thorndale Estate then Usbourne Way Estate)",
+                    "times": [
+                        "18:00:00",
+                        "20:00:00"
+                    ],
+                    "mrs": false
+                }
+            ]
+        },
+        {
+            "date": "2022-12-10T00:00:00.000Z",
+            "collections": [
+                {
+                    "location": "Belvoir Centre",
+                    "times": [
+                        "10:00:00",
+                        "13:00:00"
+                    ],
+                    "mrs": false
+                },
+                {
+                    "location": "Newmarket",
+                    "times": [
+                        "13:00:00",
+                        "16:00:00"
+                    ],
+                    "mrs": false
+                }
+            ]
+        },
+        {
+            "date": "2022-12-11T00:00:00.000Z",
+            "collections": [
+                {
+                    "location": "Co-Op Ibstock",
+                    "times": [
+                        "10:00:00",
+                        "16:00:00"
+                    ],
+                    "mrs": false
+                }
+            ]
+        },
+        {
+            "date": "2022-12-14T00:00:00.000Z",
+            "collections": [
+                {
+                    "location": "Coalville (Cropston Drive/Bradgate Drive Area)",
+                    "times": [
+                        "18:00:00",
+                        "20:00:00"
+                    ],
+                    "mrs": false
+                }
+            ]
+        },
+        {
+            "date": "2022-12-15T00:00:00.000Z",
+            "collections": [
+                {
+                    "location": "Newton Burgoland (Near Primary School)",
+                    "times": [
+                        "17:00:00",
+                        "19:00:00"
+                    ],
+                    "mrs": false
+                }
+            ]
+        },
+        {
+            "date": "2022-12-17T00:00:00.000Z",
+            "collections": [
+                {
+                    "location": "Belvoir Centre",
+                    "times": [
+                        "10:00:00",
+                        "13:00:00"
+                    ],
+                    "mrs": false
+                },
+                {
+                    "location": "Newmarket",
+                    "times": [
+                        "13:00:00",
+                        "16:00:00"
+                    ],
+                    "mrs": true
+                }
+            ]
+        },
+        {
+            "date": "2022-12-18T00:00:00.000Z",
+            "collections": [
+                {
+                    "location": "Spar Broom Leys Road",
+                    "times": [
+                        "10:00:00",
+                        "16:00:00"
+                    ],
+                    "mrs": false
+                }
+            ]
+        },
+        {
+            "date": "2022-12-19T00:00:00.000Z",
+            "collections": [
+                {
+                    "location": "Belvoir Centre",
+                    "times": [
+                        "10:00:00",
+                        "13:00:00"
+                    ],
+                    "mrs": false
+                }
+            ]
+        },
+        {
+            "date": "2022-12-20T00:00:00.000Z",
+            "collections": [
+                {
+                    "location": "Belvoir Centre",
+                    "times": [
+                        "10:00:00",
+                        "13:00:00"
+                    ],
+                    "mrs": false
+                },
+                {
+                    "location": "Newmarket",
+                    "times": [
+                        "13:00:00",
+                        "16:00:00"
+                    ],
+                    "mrs": false
+                }
+            ]
+        },
+        {
+            "date": "2022-12-21T00:00:00.000Z",
+            "collections": [
+                {
+                    "location": "Belvoir Centre",
+                    "times": [
+                        "10:00:00",
+                        "16:00:00"
+                    ],
+                    "mrs": false
+                }
+            ]
+        },
+        {
+            "date": "2022-12-22T00:00:00.000Z",
+            "collections": [
+                {
+                    "location": "Belvoir Centre",
+                    "times": [
+                        "10:00:00",
+                        "13:00:00"
+                    ],
+                    "mrs": false
+                },
+                {
+                    "location": "Newmarket",
+                    "times": [
+                        "13:00:00",
+                        "16:00:00"
+                    ],
+                    "mrs": false
+                }
+            ]
+        },
+        {
+            "date": "2022-12-23T00:00:00.000Z",
+            "collections": [
+                {
+                    "location": "Belvoir Centre",
+                    "times": [
+                        "10:00:00",
+                        "13:00:00"
+                    ],
+                    "mrs": false
+                },
+                {
+                    "location": "Newmarket",
+                    "times": [
+                        "13:00:00",
+                        "16:00:00"
+                    ],
+                    "mrs": true
+                }
+            ]
+        }
+    ]
 }
