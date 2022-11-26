@@ -405,6 +405,12 @@ export default Vue.extend({
     // Stop loading
     this.isLoading = false;
   },
+  beforeMount() {
+    Vue.prototype.$snowflakes.hide();
+  },
+  destroyed() {
+    Vue.prototype.$snowflakes.show();
+  },
   beforeDestroy() {
     // Unsubscribe from Firestore
     if (this.unsubscribe) this.unsubscribe();
