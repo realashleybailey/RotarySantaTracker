@@ -214,7 +214,7 @@ export default Vue.extend({
       location.collections.forEach(collection => {
 
         const debug = false;
-        const today = new Date(debug ? "2022-11-29T18:00:00.000Z" : new Date().toISOString());
+        const today = new Date(debug ? "2022-11-29T20:00:00.000Z" : new Date().toISOString());
 
         const date = new Date(location.date);
         const dateString = new Date(location.date).toLocaleDateString('en-GB', { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' });
@@ -232,7 +232,7 @@ export default Vue.extend({
         const timeString = `${startString} - ${endString}`;
 
         // If date has already passed, don't add to collections array
-        if (date.toDateString() < today.toDateString()) return;
+        if (endTime.getTime() < today.getTime()) return;
 
         this.collections.push({ date: dateString, location: collection.location, time: timeString, mrs: collection.mrs });
 
