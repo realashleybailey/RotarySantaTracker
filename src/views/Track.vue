@@ -58,6 +58,7 @@ import { Analytics, getAnalytics, logEvent } from "firebase/analytics";
 
 import { loadGoogleMaps } from "../ts/loadGoogleMaps";
 import { createGoogleMarker } from "../ts/createGoogleMarker";
+import { resolve } from "path";
 
 export default Vue.extend({
   name: "AddGoogleMap",
@@ -85,6 +86,14 @@ export default Vue.extend({
     },
   },
   methods: {
+    publishMessage(message: string, type = "is-primary") {
+      this.$buefy.toast.open({
+        message,
+        type,
+        position: "is-top",
+        duration: 5000,
+      });
+    },
     async loadKMLroute() {
       const app = getApp();
 
@@ -118,9 +127,12 @@ export default Vue.extend({
       const KMLoptions: google.maps.KmlLayerOptions = {
         url: url,
         map: this.map,
+        preserveViewport: true
       }
 
       new google.maps.KmlLayer(KMLoptions);
+
+      this.publishMessage("Loaded Santa's route");
     },
     getBoundsZoomLevel(bounds: google.maps.LatLngBounds, mapDim: { height: number; width: number }) {
       let WORLD_DIM = { height: 256, width: 256 };
@@ -158,7 +170,7 @@ export default Vue.extend({
       this.map?.setZoom(18);
       this.map?.setCenter(mapCenter);
     },
-    async transitionZoom(current: number, moveto: number, map: google.maps.Map) {
+    async transitionZoom(current: number, moveto: number, map: google.maps.Map) {      
       // If current zoom is less than moveto, zoom in incrementally by 0.1 until current zoom is equal to moveto
       if (current < moveto) {
         for (let i = current; i < moveto; i += 0.1) {
@@ -176,30 +188,34 @@ export default Vue.extend({
       }
     },
     async transitionRegion(current: google.maps.LatLng, moveto: google.maps.LatLng, map: google.maps.Map) {
-      let numDeltas = 100;
-      let delay = 5; //milliseconds
-      let i = 0;
+      return new Promise(resolve => {
+        let numDeltas = 100;
+        let delay = 5; //milliseconds
+        let i = 0;
 
-      let deltaLat = (moveto.lat() - current.lat()) / numDeltas;
-      let deltaLng = (moveto.lng() - current.lng()) / numDeltas;
+        let deltaLat = (moveto.lat() - current.lat()) / numDeltas;
+        let deltaLng = (moveto.lng() - current.lng()) / numDeltas;
 
-      moveMarker();
+        moveMarker();
 
-      function moveMarker() {
-        current = new google.maps.LatLng(current.lat() + deltaLat, current.lng() + deltaLng);
-        
-        let LatLng = new google.maps.LatLngBounds();
-        LatLng.extend(current);
+        function moveMarker() {
+          current = new google.maps.LatLng(current.lat() + deltaLat, current.lng() + deltaLng);
 
-        let mapCenter = LatLng.getCenter();
+          let LatLng = new google.maps.LatLngBounds();
+          LatLng.extend(current);
 
-        map.setCenter(mapCenter);
+          let mapCenter = LatLng.getCenter();
 
-        if (i != numDeltas) {
-          i++;
-          setTimeout(moveMarker, delay);
+          map.setCenter(mapCenter);
+
+          if (i != numDeltas) {
+            i++;
+            setTimeout(moveMarker, delay);
+          } else {
+            resolve(true);
+          }
         }
-      }
+      });
     },
     async requestUserLocation() {
       let title = "Use your location?";
@@ -242,18 +258,22 @@ export default Vue.extend({
       this.$buefy.dialog.confirm({ title, message, confirmText, type, hasIcon, icon, iconPack });
     },
     async startTrackingSanta() {
-      // Get Firestore instance
-      const app = getApp();
-      const db = getFirestore(app);
+      return new Promise((resolve) => {
+        // Get Firestore instance
+        const app = getApp();
+        const db = getFirestore(app);
 
-      // Get Santa's location as a Snapshot
-      const santaRef = collection(db, "places");
-      const santaSnapshot = onSnapshot(santaRef, this.updateSantasLocation);
+        // Get Santa's location as a Snapshot
+        const santaRef = collection(db, "places");
+        const santaSnapshot = onSnapshot(santaRef, (snapshot) => {
+          this.updateSantasLocation(snapshot, resolve)
+        });
 
-      // Set the unsubscribe function
-      this.unsubscribe = santaSnapshot;
+        // Set the unsubscribe function
+        this.unsubscribe = santaSnapshot;
+      })
     },
-    async updateSantasLocation(snapshot: QuerySnapshot<DocumentData>) {
+    async updateSantasLocation(snapshot: QuerySnapshot<DocumentData>, resolve: any) {
       // Get the Santa's location and create a new LatLng object
       const santaLocation = snapshot.docs[0].data().location as GeoPoint;
       const santaLatLng = new google.maps.LatLng(santaLocation.latitude, santaLocation.longitude);
@@ -263,27 +283,34 @@ export default Vue.extend({
 
       // Update the region to Santa's location
       if (!this.trackSantaEnabled) {
-        this.transitionRegion(this.mapMarkers.santa?.getPosition() as google.maps.LatLng, santaLatLng, this.map as google.maps.Map);
+        await this.transitionRegion(this.mapMarkers.santa?.getPosition() as google.maps.LatLng, santaLatLng, this.map as google.maps.Map);
       }
+
+      resolve();
     },
     async transitionMarker(current: google.maps.LatLng, moveto: google.maps.LatLng, marker: google.maps.Marker) {
-      let numDeltas = 100;
-      let delay = 5; //milliseconds
-      let i = 0;
+      return new Promise((resolve) => {
+        let numDeltas = 100;
+        let delay = 5; //milliseconds
+        let i = 0;
 
-      let deltaLat = (moveto.lat() - current.lat()) / numDeltas;
-      let deltaLng = (moveto.lng() - current.lng()) / numDeltas;
+        let deltaLat = (moveto.lat() - current.lat()) / numDeltas;
+        let deltaLng = (moveto.lng() - current.lng()) / numDeltas;
 
-      moveMarker();
+        moveMarker();
 
-      function moveMarker() {
-        current = new google.maps.LatLng(current.lat() + deltaLat, current.lng() + deltaLng);
-        marker.setPosition(current);
-        if (i != numDeltas) {
-          i++;
-          setTimeout(moveMarker, delay);
+        function moveMarker() {
+          current = new google.maps.LatLng(current.lat() + deltaLat, current.lng() + deltaLng);
+          marker.setPosition(current);
+
+          if (i != numDeltas) {
+            i++;
+            setTimeout(moveMarker, delay);
+          } else {
+            resolve(true);
+          }
         }
-      }
+      });
     },
     createMapMarker(title: string, iconURL: any, text: string, location: { lat: number, lng: number }, className: string): google.maps.Marker {
       // Create a icon for the marker
@@ -303,7 +330,7 @@ export default Vue.extend({
 
       return createGoogleMarker(this.map!, new google.maps.LatLng(location.lat, location.lng), icon, title, label)
     },
-    setRegionToAll() {
+    async setRegionToAll() {
       // Creat a LatLngBounds object
       let LatLngBounds = new google.maps.LatLngBounds();
 
@@ -319,29 +346,37 @@ export default Vue.extend({
       let zoomLevel = this.getBoundsZoomLevel(LatLngBounds, { height: this.map!.getDiv().clientHeight, width: this.map!.getDiv().clientWidth });
 
       // Set the center of the map to the center of the bounds and the zoom level
-      this.transitionRegion(this.map!.getCenter()!, mapCenter, this.map!);
-      this.transitionZoom(this.map!.getZoom()!, zoomLevel, this.map!);
+      await this.transitionRegion(this.map!.getCenter()!, mapCenter, this.map!);
+      await this.transitionZoom(this.map!.getZoom()!, zoomLevel, this.map!);
     },
     async toggleTrackSantaEnabled() {
       this.trackSantaEnabled = !this.trackSantaEnabled;
-      if (!this.trackSantaEnabled) this.transitionRegion(this.map!.getCenter()!, this.mapMarkers.santa!.getPosition()!, this.map as google.maps.Map);
-      else this.setRegionToAll();
+      this.disableGesture();
+      if (!this.trackSantaEnabled) await this.transitionRegion(this.map!.getCenter()!, this.mapMarkers.santa!.getPosition()!, this.map as google.maps.Map);
+      else await this.setRegionToAll();
       
-      // await new Promise(resolve => setTimeout(resolve, 1500));
-
-      if (!this.trackSantaEnabled) this.transitionZoom(this.map!.getZoom()!, 20, this.map!);
+      if (!this.trackSantaEnabled) await this.transitionZoom(this.map!.getZoom()!, 20, this.map!);
       // else this.transitionZoom(this.map!.getZoom()!, 14, this.map!);
+      this.enabledGesture();
     },
-    viewMyLocation() {
+    async viewMyLocation() {
+      this.disableGesture();
       if (this.mapMarkers.user?.getVisible()) {
-        this.transitionRegion(this.map!.getCenter()!, this.mapMarkers.user.getPosition()!, this.map as google.maps.Map);
         this.trackSantaEnabled = true;
+        await this.transitionRegion(this.map!.getCenter()!, this.mapMarkers.user.getPosition()!, this.map as google.maps.Map);
       } else if (this.canGeolocate && this.alreadyRequestedGeolocation) {
-        this.startTrackingUser();
         this.trackSantaEnabled = true;
+        await this.startTrackingUser();
       } else {
-        this.requestUserLocation();
+        await this.requestUserLocation();
       }
+      this.enabledGesture();
+    },
+    enabledGesture() {
+      this.map!.setOptions({ draggable: true, scrollwheel: true, disableDoubleClickZoom: false, gestureHandling: "auto", keyboardShortcuts: true });
+    },
+    disableGesture() {
+      this.map!.setOptions({ draggable: false, scrollwheel: false, disableDoubleClickZoom: true, gestureHandling: "none", keyboardShortcuts: false });
     },
     createAnalytics() {
       const app = getApp();
@@ -356,6 +391,9 @@ export default Vue.extend({
   async mounted() {
     // Start loading
     this.isLoading = true;
+
+    // Hide snowflakes
+    Vue.prototype.$snowflakes.hide();
     
     // Create analytics
     this.createAnalytics();
@@ -379,39 +417,33 @@ export default Vue.extend({
     // Get the map
     this.map = new window.google.maps.Map(document.getElementById("map") as HTMLElement, options);
 
+    // Stop loading
+    this.isLoading = false;
+
     // Create the markers
     this.mapMarkers.santa = this.createMapMarker("Santa", require('../assets/santa.png'), "Santas Sleigh", { lat: this.defaultCoordinates.lat, lng: this.defaultCoordinates.lng }, "marker-position");
     this.mapMarkers.user = this.createMapMarker("User", require('../assets/mapmarker.png'), "My Location", { lat: this.defaultCoordinates.lat, lng: this.defaultCoordinates.lng }, "marker-position");
 
-    // Hide user marker until geolocation is available
-    // this.mapMarkers.user?.setVisible(false);
+    // Load route
+    this.loadKMLroute();
 
     // Start tracking Santa
-    this.startTrackingSanta();
+    this.disableGesture(); // Disable gesture to prevent map from moving while animating
+    await this.startTrackingSanta();
+    await this.transitionZoom(this.map.getZoom()!, 20, this.map);
+    this.enabledGesture(); // Enable gesture again
 
+    // Start tracking user
     if (this.canGeolocate && this.alreadyRequestedGeolocation) {
       this.startTrackingUser();
     }
 
-    // Load route
-    this.loadKMLroute();
-
-    setTimeout(() => {
-      this.transitionZoom(this.map!.getZoom()!, 20, this.map!);
-    }, 2500);
-
     (window as any).map = this.map;
-
-    // Stop loading
-    this.isLoading = false;
-  },
-  beforeMount() {
-    Vue.prototype.$snowflakes.hide();
-  },
-  destroyed() {
-    Vue.prototype.$snowflakes.show();
   },
   beforeDestroy() {
+    // Show snowflakes
+    Vue.prototype.$snowflakes.show();
+    
     // Unsubscribe from Firestore
     if (this.unsubscribe) this.unsubscribe();
 
