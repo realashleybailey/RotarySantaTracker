@@ -14,7 +14,7 @@
   "dependencies": {
     "@aicdev/snowflakejs": "^0.0.3",
     "buefy": "^0.9.14",
-    "firebase": "^9.6.6",
+    "firebase": "^10.9.0",
     "jquery": "^3.6.1",
     "load-google-maps-api": "^2.0.2",
     "nodemon": "^2.0.20",
