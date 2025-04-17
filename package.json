@@ -18,7 +18,7 @@
     "jquery": "^3.6.1",
     "load-google-maps-api": "^2.0.2",
     "nodemon": "^2.0.20",
-    "vue": "^2.6.11",
+    "vue": "^3.0.0",
     "vue-class-component": "^7.2.3",
     "vue-property-decorator": "^9.1.2",
     "vue-router": "^3.2.0",
